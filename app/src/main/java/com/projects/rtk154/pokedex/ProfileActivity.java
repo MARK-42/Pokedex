@@ -16,6 +16,10 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         mFirebaseAuth= FirebaseAuth.getInstance();
         Button logoutButton=(Button)findViewById(R.id.logoutButton);
+        Button plantButton = (Button) findViewById(R.id.button);
+        Button flowersButton = (Button) findViewById(R.id.button2);
+        Button edibleButton = (Button) findViewById(R.id.button3);
+        Button insectsButton = (Button) findViewById(R.id.button4);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//stop getting location
@@ -23,6 +27,33 @@ public class ProfileActivity extends AppCompatActivity {
                 mFirebaseAuth.signOut();
                 finish();
                 startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
+            }
+        });
+        plantButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//stop getting location
+                startActivity(new Intent(ProfileActivity.this,CaptureImage.class));
+            }
+        });
+        flowersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//stop getting location
+
+                startActivity(new Intent(ProfileActivity.this,CaptureImage.class));
+            }
+        });
+        edibleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//stop getting location
+
+                startActivity(new Intent(ProfileActivity.this,CaptureImage.class));
+            }
+        });
+        insectsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {//stop getting location
+
+                startActivity(new Intent(ProfileActivity.this,CaptureImage.class));
             }
         });
     }
