@@ -112,10 +112,10 @@ def construct_feature_model():
     print('Contructing the model')
     
     model1 = Sequential([
-        Dense(nb_classes * 2, input_shape=x_train_features.shape[1:]),
+       Dense(nb_classes * 2, input_shape=x_train_features.shape[1:]),
         BatchNormalization(),
         Activation('tanh'),
-        Dropout(0.25)
+       Dropout(0.25)
     ])
     
     model2 = Sequential([
@@ -172,7 +172,6 @@ data_augmentation = False
 if not data_augmentation:
     print('Not using data augmentation')
     history = model.fit([x_features, x_images], y,
-    #history = model.fit(x_features, y,
               batch_size=batch_size,
               nb_epoch=nb_epoch, 
               verbose=verbose,
@@ -184,8 +183,8 @@ if not data_augmentation:
               sample_weight=sample_weight)
 print('Finish fitting\nFitting time', time.time() - s)
 model = load_model(best_model_file)
-
-y_prob = model.predict(test_data.iloc[:, 1:].values, test_images)
+zx=test_data.iloc[:, 1:].values
+y_prob = model.predict([test_data.iloc[:, 1:].values, test_images])
 
 
 
